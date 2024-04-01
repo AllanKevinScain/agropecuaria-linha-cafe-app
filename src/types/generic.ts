@@ -4,8 +4,12 @@ import { ImageProps } from "react-native";
 export type ProductProps = (typeof PRODUCTS)[0];
 
 export type ProductDataType = {
-  title: string;
+  id: string;
+  category: string;
+  image_url_thumb: string;
+  price: number;
+  name: string;
   description: string;
-  thumbnail: ImageProps;
+  image_url_cover: string;
   quantity?: number;
 };

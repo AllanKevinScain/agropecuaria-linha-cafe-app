@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { View, FlatList, SectionList, Text } from "react-native";
 import { Link } from "expo-router";
 
-import { CategoryButton, Header, Product } from "@/components";
+import { CategoryButton, Container, Header, Product } from "@/components";
 import { CATEGORIES, MENU } from "@/utils";
 import { useCartStore } from "@/stores";
 import { ProductProps } from "@/types";
@@ -33,8 +33,8 @@ export default function Home() {
   }
 
   return (
-    <View className="flex-1 pt-8">
-      <Header title="Faça seu pedido" cartQuantityItems={cartQuantityItems} />
+    <Container>
+      <Header cartQuantityItems={cartQuantityItems} />
 
       <FlatList
         data={CATEGORIES}
@@ -80,6 +80,6 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 100 }}
       />
-    </View>
+    </Container>
   );
 }

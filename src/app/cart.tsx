@@ -4,7 +4,14 @@ import { useNavigation } from "expo-router";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
 
-import { Header, Input, Product, CustomButton, LinkButton } from "@/components";
+import {
+  Header,
+  Input,
+  Product,
+  CustomButton,
+  LinkButton,
+  Container,
+} from "@/components";
 import { useCartStore } from "@/stores";
 import { formatCurrency } from "@/utils";
 import { ProductsCartProps } from "@/types";
@@ -23,7 +30,7 @@ export default function Cart() {
   );
 
   function removeProductFromCart(value: ProductsCartProps) {
-    Alert.alert("Remover", `Deseja remover ${value.title} do carrinho?`, [
+    Alert.alert("Remover", `Deseja remover ${value.name} do carrinho?`, [
       {
         text: "Cancelar",
       },
@@ -40,21 +47,21 @@ export default function Cart() {
     }
 
     const modifiedProducts = products.map(
-      (p) => `\n ${p.quantity} ${p.title} \n`
+      (p) => `\n ${p.quantity} ${p.name} \n`
     );
     const joinModifiedProducts = modifiedProducts.join("");
     const message = `NOVO PEDIDO\nEntregar em: ${address}\n${joinModifiedProducts}\nValor total: ${total}`;
 
     Linking.openURL(
-      `http://api.whatsapp.com/send?phone=5551995368765&text=${message}`
+      `http://api.whatsapp.com/send?phone=5551996533026&text=${message}`
     );
     clear();
     navigate.goBack();
   }
 
   return (
-    <View className="flex-1 pt-8">
-      <Header title="Seu carrinho" />
+    <Container>
+      <Header />
       <KeyboardAwareScrollView>
         <ScrollView>
           <View className="p-5 flex-1">
@@ -107,6 +114,6 @@ export default function Cart() {
 
         <LinkButton title="Voltar ao cardápio" href="/" />
       </View>
-    </View>
+    </Container>
   );
 }

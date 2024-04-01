@@ -28,13 +28,13 @@ export default function Product() {
   return (
     <View className="flex-1">
       <Image
-        source={product.cover}
+        source={{ uri: product.image_url_thumb }}
         className="w-full h-52"
         resizeMode="cover"
       />
 
       <View className="p-5 mt-8 flex-1">
-        <Text className="text-white text-xl font-heading">{product.title}</Text>
+        <Text className="text-white text-xl font-heading">{product.name}</Text>
         <Text className="text-lime-400 text-2xl font-heading my-2">
           {formatCurrency(product.price)}
         </Text>
@@ -42,15 +42,6 @@ export default function Product() {
         <Text className="text-slate-400 font-body text-base leading-6 mb-6">
           {product.description}
         </Text>
-
-        {product.ingredients.map((i) => (
-          <Text
-            key={i}
-            className="text-slate-400 font-bold text-base leading-6"
-          >
-            {"\u2022"} {i}
-          </Text>
-        ))}
 
         <View className="pt-6 pb-8 gap-5">
           <CustomButton.Root onPress={addProductToCart}>
