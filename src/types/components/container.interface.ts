@@ -1,5 +1,3 @@
-import { ViewProps } from "react-native";
-
-export interface ContainerInterface extends Pick<ViewProps, "className"> {
+export interface ContainerInterface {
   children: React.ReactNode;
 }

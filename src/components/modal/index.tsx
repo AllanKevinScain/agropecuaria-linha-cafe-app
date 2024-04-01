@@ -1,3 +1,4 @@
+import { ModalInterface } from "@/types";
 import { useState } from "react";
 import {
   Alert,
@@ -8,7 +9,7 @@ import {
   View,
 } from "react-native";
 
-export const Modal: React.FC = (props) => {
+export const Modal: React.FC<ModalInterface> = (props) => {
   const { isOpen, onClose } = props;
 
   return (
